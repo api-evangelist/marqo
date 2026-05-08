@@ -1,0 +1,29 @@
+aid: marqo
+url: https://raw.githubusercontent.com/api-evangelist/marqo/refs/heads/main/apis.yml
+name: Marqo
+x-type: company
+description: >-
+  Marqo is an end-to-end vector search engine that handles ingestion, embedding generation, indexing, and reranking. Open source with managed cloud.
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+tags:
+  - Vector Database
+  - AI
+  - Search
+  - Embeddings
+  - Open Source
+created: '2026-05-08'
+modified: '2026-05-08'
+specificationVersion: '0.19'
+apis: []
+common:
+  - type: Website
+    url: https://www.marqo.ai/
+  - type: Plans
+    url: plans/marqo-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/marqo-rate-limits.yml
+  - type: FinOps
+    url: finops/marqo-finops.yml
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
