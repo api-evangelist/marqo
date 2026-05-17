@@ -1,7 +1,7 @@
 aid: marqo
 url: https://raw.githubusercontent.com/api-evangelist/marqo/refs/heads/main/apis.yml
 name: Marqo
-x-type: company
+kind: company
 description: >-
   Marqo is an AI-native ecommerce search and discovery platform with managed cloud.
   Note: the original Apache 2.0 open-source vector engine project (github.com/marqo-ai/marqo)
