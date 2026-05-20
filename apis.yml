@@ -55,6 +55,8 @@ apis:
       - type: Deprecation
         url: https://github.com/marqo-ai/marqo
 common:
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/marqo-ai
   - type: Website
     url: https://www.marqo.ai/
   - type: Cloud
