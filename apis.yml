@@ -71,6 +71,8 @@ common:
     url: rate-limits/marqo-rate-limits.yml
   - type: FinOps
     url: finops/marqo-finops.yml
+  - type: LLMsTxt
+    url: https://api.marqo.ai/llms.txt
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
