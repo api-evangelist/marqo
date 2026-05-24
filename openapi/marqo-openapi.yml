@@ -1,0 +1,146 @@
+openapi: 3.1.0
+info:
+  title: Marqo Cloud API
+  version: v1
+  description: |
+    Marqo Cloud REST API for AI-native ecommerce search and discovery.
+    Exposes index management, document add/update/get/delete, and search
+    (lexical, tensor, AI, recommendations) operations against a hosted
+    Marqo Cloud index.
+  contact:
+    name: Marqo
+    url: https://www.marqo.ai
+servers:
+  - url: https://ecom.marqo-ep.ai/api/v1
+    description: Marqo Cloud ecommerce endpoint
+security:
+  - BearerAuth: []
+paths:
+  /indexes/{index_name}/documents:
+    post:
+      summary: Add or update products (documents) in an index
+      operationId: addDocuments
+      parameters:
+        - $ref: '#/components/parameters/IndexName'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [documents]
+              properties:
+                documents:
+                  type: array
+                  description: An array of product documents to index.
+                  items:
+                    type: object
+                    additionalProperties: true
+                    properties:
+                      _id:
+                        type: string
+                        description: Unique identifier for this product variant.
+                      productTitle:
+                        type: string
+                      variantImageUrl:
+                        type: string
+                        format: uri
+                      price:
+                        type: number
+      responses:
+        '200':
+          description: Documents accepted for indexing.
+    delete:
+      summary: Delete products (documents) by ID
+      operationId: deleteDocuments
+      parameters:
+        - $ref: '#/components/parameters/IndexName'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [ids]
+              properties:
+                ids:
+                  type: array
+                  items:
+                    type: string
+      responses:
+        '200':
+          description: Deletion accepted.
+  /indexes/{index_name}/get-documents:
+    post:
+      summary: Get products (documents) by ID
+      operationId: getDocuments
+      parameters:
+        - $ref: '#/components/parameters/IndexName'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [ids]
+              properties:
+                ids:
+                  type: array
+                  items:
+                    type: string
+      responses:
+        '200':
+          description: Documents returned.
+  /indexes/{index_name}/search:
+    post:
+      summary: Search an index (lexical, tensor, or AI search)
+      operationId: search
+      parameters:
+        - $ref: '#/components/parameters/IndexName'
+        - in: header
+          name: x-marqo-index-id
+          required: false
+          schema:
+            type: string
+          description: |
+            Optional Marqo index identifier header used by AI search.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                q:
+                  type: string
+                  description: The natural-language or keyword query.
+                limit:
+                  type: integer
+                  minimum: 1
+                offset:
+                  type: integer
+                  minimum: 0
+                searchMethod:
+                  type: string
+                  enum: [TENSOR, LEXICAL, HYBRID]
+                filter:
+                  type: string
+                  description: Optional filter expression.
+      responses:
+        '200':
+          description: Search results.
+components:
+  parameters:
+    IndexName:
+      in: path
+      name: index_name
+      required: true
+      schema:
+        type: string
+      description: Name of the Marqo Cloud index.
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: |
+        Marqo Cloud API key passed as `Authorization: Bearer {api_key}`.
