@@ -1,68 +1,86 @@
 aid: marqo
-url: https://raw.githubusercontent.com/api-evangelist/marqo/refs/heads/main/apis.yml
 name: Marqo
-kind: company
 description: >-
-  Marqo is an AI-native ecommerce search and discovery platform with managed cloud.
-  Note: the original Apache 2.0 open-source vector engine project (github.com/marqo-ai/marqo)
-  is now marked deprecated and no longer receives updates; Marqo's current product is
-  the Marqo Cloud SaaS focused on ecommerce search.
+  Marqo is an open-source, multimodal vector search engine that lets developers
+  index text and images, generate embeddings on the fly, and run tensor, lexical,
+  and hybrid search through a single REST API. Built on Vespa for storage and
+  retrieval and FastAPI for the HTTP surface, Marqo bundles model inference
+  (Sentence Transformers, OpenCLIP, ONNX) inside the engine so a single
+  `docker run` produces a working semantic search stack. The Apache 2.0
+  open-source engine has been marked deprecated by the maintainers as Marqo
+  pivots to a hosted ecommerce search product, but the project remains widely
+  forked, downloaded, and self-hosted, with active sibling repositories for the
+  Python client, Terraform provider, InstantSearch client, ecommerce embedding
+  models, and Generalised Contrastive Learning research.
+type: Index
+position: Consumer
+access: 3rd-Party
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
   - Vector Database
-  - Ecommerce Search
-  - AI
+  - Vector Search
+  - Multimodal
+  - Semantic Search
   - Embeddings
-  - Recommendations
+  - AI
+  - Machine Learning
+  - Open Source
+  - Ecommerce Search
+url: https://raw.githubusercontent.com/api-evangelist/marqo/refs/heads/main/apis.yml
 created: '2026-05-08'
-modified: '2026-05-08'
+modified: '2026-05-25'
 specificationVersion: '0.19'
 apis:
-  - aid: marqo:marqo-cloud-api
-    name: Marqo Cloud API
-    humanURL: https://cloud.marqo.ai/
-    baseURL: https://api.marqo.ai
+  - aid: marqo:marqo-rest-api
+    name: Marqo REST API
+    description: >-
+      The Marqo REST API is the HTTP surface exposed by the open-source engine
+      (default `http://localhost:8882`). It provides index lifecycle management,
+      document add/update/get/delete, lexical/tensor/hybrid search, recommendations,
+      embedding generation, model lifecycle, telemetry, and health endpoints. The
+      same surface is served by Marqo Cloud at `https://api.marqo.ai`, and the
+      live OpenAPI schema is published by the running engine at `/openapi.json`
+      with Swagger UI at `/docs`.
+    humanURL: https://docs.marqo.ai/
+    baseURL: http://localhost:8882
     tags:
       - REST
       - Indexes
       - Documents
       - Search
-    description: >-
-      The Marqo Cloud REST API exposes indexes, document add/update, search (lexical
-      and tensor/vector), and merchandising controls. The cloud API is identical to the
-      legacy open-source Marqo API but is the supported surface going forward.
+      - Embeddings
+      - Models
+      - Multimodal
     properties:
       - type: Documentation
         url: https://docs.marqo.ai/
-      - type: Authentication
-        url: https://cloud.marqo.ai/
-  - aid: marqo:marqo-open-source-deprecated
-    name: Marqo Open Source (Deprecated)
-    humanURL: https://github.com/marqo-ai/marqo
-    baseURL: http://{host}:8882
-    tags:
-      - REST
-      - Open Source
-      - Deprecated
-    description: >-
-      The original Apache 2.0 Marqo open-source engine repository is marked deprecated
-      ("Marqo's Open Source project is deprecated and will no longer receive updates").
-      Existing self-hosted deployments still expose the same REST surface (indexes,
-      documents, search) on port 8882 by default.
-    properties:
+      - type: OpenAPI
+        url: openapi/marqo-openapi.yml
+      - type: APIReference
+        url: https://docs.marqo.ai/latest/
+      - type: GettingStarted
+        url: https://github.com/marqo-ai/marqo#getting-started
       - type: SourceCode
         url: https://github.com/marqo-ai/marqo
       - type: Deprecation
         url: https://github.com/marqo-ai/marqo
 common:
-  - type: LinkedIn
-    url: https://www.linkedin.com/company/marqo-ai
   - type: Website
     url: https://www.marqo.ai/
-  - type: Cloud
-    url: https://cloud.marqo.ai/
-  - type: Portal
+  - type: GitHubOrganization
+    url: https://github.com/marqo-ai
+  - type: GitHubRepository
+    url: https://github.com/marqo-ai/marqo
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/marqo-ai
+  - type: Documentation
     url: https://docs.marqo.ai/
+  - type: GettingStarted
+    url: https://github.com/marqo-ai/marqo#getting-started
+  - type: License
+    url: https://github.com/marqo-ai/marqo/blob/mainline/LICENSE
+  - type: Blog
+    url: https://www.marqo.ai/blog/
   - type: Pricing
     url: https://www.marqo.ai/pricing
   - type: Plans
@@ -71,8 +89,88 @@ common:
     url: rate-limits/marqo-rate-limits.yml
   - type: FinOps
     url: finops/marqo-finops.yml
-  - type: LLMsTxt
-    url: https://api.marqo.ai/llms.txt
+  - type: SDK
+    name: py-marqo (Python client)
+    url: https://github.com/marqo-ai/py-marqo
+  - type: SDK
+    name: marqo-instantsearch-client (TypeScript)
+    url: https://github.com/marqo-ai/marqo-instantsearch-client
+  - type: Tools
+    name: terraform-provider-marqo
+    url: https://github.com/marqo-ai/terraform-provider-marqo
+  - type: Tools
+    name: marqo-base (Docker base image)
+    url: https://github.com/marqo-ai/marqo-base
+  - type: Tools
+    name: ingrain_server (Sentence Transformers / CLIP serving)
+    url: https://github.com/marqo-ai/ingrain_server
+  - type: Models
+    name: marqo-ecommerce-embeddings
+    url: https://github.com/marqo-ai/marqo-ecommerce-embeddings
+  - type: Models
+    name: marqo-FashionCLIP
+    url: https://github.com/marqo-ai/marqo-FashionCLIP
+  - type: Research
+    name: Generalised Contrastive Learning (GCL)
+    url: https://github.com/marqo-ai/GCL
+  - type: Examples
+    name: local-image-search-demo
+    url: https://github.com/marqo-ai/local-image-search-demo
+  - type: Course
+    name: Fine-Tuning Embedding Models for Semantic Search
+    url: https://github.com/marqo-ai/fine-tuning-embedding-models-course
+  - type: Features
+    data:
+      - Open-source Apache 2.0 vector search engine (project marked deprecated by maintainers; still 5,000+ stars and actively forked)
+      - Single `docker run` install bundling Vespa storage and embedding model inference
+      - Tensor, lexical, and hybrid search through a unified REST API
+      - Multimodal indexing of text and images with on-engine inference
+      - Embedding generation via Sentence Transformers, OpenCLIP, and ONNX models
+      - Generalised Contrastive Learning (GCL) framework for fine-tuned retrieval
+      - Marqo-FashionCLIP and marqo-ecommerce-embeddings open-weight models
+      - Recommendations, filters, and structured + unstructured fields
+      - FastAPI runtime exposing live `/openapi.json` and Swagger UI at `/docs`
+      - Compose files for inference, model management, and Triton-backed serving
+      - Python client (py-marqo), Terraform provider, and InstantSearch client
+      - Hosted Marqo Cloud surface preserves API parity for legacy users
+    sources:
+      - https://github.com/marqo-ai/marqo
+      - https://github.com/marqo-ai
+    updated: '2026-05-25'
+  - type: UseCases
+    data:
+      - name: Multimodal Semantic Search
+        description: Index text and images into a single tensor store and query with natural-language or image inputs, with embedding inference running inside the engine.
+      - name: Retrieval-Augmented Generation
+        description: Power RAG pipelines by serving the nearest-neighbor retrieval layer for LLM context windows over private corpora.
+      - name: Ecommerce Product Discovery
+        description: Drive product search, recommendations, and merchandising-aware ranking using semantic relevance plus structured filters and boosts.
+      - name: Visual Search
+        description: Search product catalogs and image libraries using image-to-image and text-to-image similarity through OpenCLIP / Marqo-FashionCLIP.
+      - name: Self-Hosted Vector Backend
+        description: Stand up an Apache 2.0 vector search service alongside your application stack with `docker run`, no separate embedding service required.
+  - type: Integrations
+    data:
+      - name: Vespa
+        description: Vespa is the underlying storage and retrieval engine that backs every Marqo index.
+      - name: Sentence Transformers
+        description: Default text embedding model family loaded by the engine for tensor search.
+      - name: OpenCLIP
+        description: Multimodal text-and-image embedding family used for visual and cross-modal search.
+      - name: Hugging Face
+        description: Models are pulled from Hugging Face hubs at first use unless preloaded.
+      - name: NVIDIA Triton
+        description: `compose-triton.yaml` ships a Triton-backed model server profile for GPU inference.
+      - name: Terraform
+        description: terraform-provider-marqo manages Marqo Cloud indexes as infrastructure-as-code.
+      - name: Algolia InstantSearch
+        description: marqo-instantsearch-client adapts Marqo to the InstantSearch.js front-end conventions.
+      - name: Shopify
+        description: Hosted Marqo product offers one-click integration for Shopify catalogs.
+      - name: Adobe Commerce
+        description: Hosted Marqo product offers Adobe Commerce / Magento connector.
+      - name: Salesforce Commerce Cloud
+        description: Hosted Marqo product offers Salesforce Commerce Cloud connector.
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
