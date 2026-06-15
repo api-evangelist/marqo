@@ -148,7 +148,9 @@ common:
       - name: Visual Search
         description: Search product catalogs and image libraries using image-to-image and text-to-image similarity through OpenCLIP / Marqo-FashionCLIP.
       - name: Self-Hosted Vector Backend
-        description: Stand up an Apache 2.0 vector search service alongside your application stack with `docker run`, no separate embedding service required.
+        description: >-
+          Stand up an Apache 2.0 vector search service alongside your application stack with `docker run`, no
+          separate embedding service required.
   - type: Integrations
     data:
       - name: Vespa
@@ -160,7 +162,8 @@ common:
       - name: Hugging Face
         description: Models are pulled from Hugging Face hubs at first use unless preloaded.
       - name: NVIDIA Triton
-        description: `compose-triton.yaml` ships a Triton-backed model server profile for GPU inference.
+        description: >-
+          `compose-triton.yaml` ships a Triton-backed model server profile for GPU inference.
       - name: Terraform
         description: terraform-provider-marqo manages Marqo Cloud indexes as infrastructure-as-code.
       - name: Algolia InstantSearch
