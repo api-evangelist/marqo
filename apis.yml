@@ -89,10 +89,10 @@ common:
     url: rate-limits/marqo-rate-limits.yml
   - type: FinOps
     url: finops/marqo-finops.yml
-  - type: SDK
+  - type: SDKs
     name: py-marqo (Python client)
     url: https://github.com/marqo-ai/py-marqo
-  - type: SDK
+  - type: SDKs
     name: marqo-instantsearch-client (TypeScript)
     url: https://github.com/marqo-ai/marqo-instantsearch-client
   - type: Tools
