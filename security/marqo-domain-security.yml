@@ -1,0 +1,28 @@
+generated: '2026-07-11'
+method: probed
+source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts
+hosts:
+- host: www.marqo.ai
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Oct  3 00:27:09 2026 GMT
+  hsts: false
+- host: docs.marqo.ai
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Aug 16 07:09:38 2026 GMT
+  hsts: false
+- host: api.marqo.ai
+  https: true
+  tls_version: TLSv1.2
+  cert_expires: Oct 28 23:59:59 2026 GMT
+  hsts: true
+  hsts_max_age: 31536000
+domains:
+- domain: marqo.ai
+  dnssec: true
+  caa:
+  - marqo-ana-48a.pages.dev.
+  spf: true
+  dmarc: true
+  dmarc_policy: reject

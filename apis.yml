@@ -65,6 +65,10 @@ apis:
       - type: Deprecation
         url: https://github.com/marqo-ai/marqo
 common:
+  - type: DomainSecurity
+    url: security/marqo-domain-security.yml
+  - type: Authentication
+    url: authentication/marqo-authentication.yml
   - type: Website
     url: https://www.marqo.ai/
   - type: GitHubOrganization
