@@ -65,6 +65,8 @@ apis:
       - type: Deprecation
         url: https://github.com/marqo-ai/marqo
 common:
+  - type: AgenticAccess
+    url: agentic-access/marqo-agentic-access.yml
   - type: DomainSecurity
     url: security/marqo-domain-security.yml
   - type: Authentication
