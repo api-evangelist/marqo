@@ -1,0 +1,127 @@
+openapi: 3.1.0
+info:
+  title: Marqo REST Documents Search API
+  version: '2.26'
+  summary: Open-source multimodal vector search engine REST API.
+  description: 'Marqo is an open-source vector search engine that bundles index storage
+
+    (Vespa) and embedding inference (Sentence Transformers, OpenCLIP, ONNX)
+
+    behind a single FastAPI HTTP surface. The engine is reachable at
+
+    `http://{host}:8882` by default and publishes its live OpenAPI schema at
+
+    `/openapi.json` with interactive Swagger UI at `/docs`. The same surface
+
+    is exposed by the hosted Marqo Cloud product at `https://api.marqo.ai`
+
+    with bearer-token authentication.
+
+
+    This profile is a hand-curated, best-effort companion spec covering the
+
+    most-used operations across indexes, documents, search, embeddings,
+
+    models, and telemetry. For the canonical, version-pinned specification
+
+    of a deployment, fetch `/openapi.json` directly from the running engine.
+
+    '
+  contact:
+    name: Marqo
+    url: https://www.marqo.ai
+  license:
+    name: Apache 2.0
+    url: https://github.com/marqo-ai/marqo/blob/mainline/LICENSE
+servers:
+- url: http://localhost:8882
+  description: Default Marqo open-source engine endpoint
+- url: https://api.marqo.ai
+  description: Marqo Cloud endpoint (bearer authentication)
+security: []
+tags:
+- name: Search
+  description: Tensor, lexical, and hybrid search across an index.
+paths:
+  /indexes/{index_name}/search:
+    post:
+      tags:
+      - Search
+      summary: Search Index
+      operationId: search
+      parameters:
+      - $ref: '#/components/parameters/IndexName'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SearchRequest'
+      responses:
+        '200':
+          description: Ranked search results.
+components:
+  parameters:
+    IndexName:
+      in: path
+      name: index_name
+      required: true
+      schema:
+        type: string
+      description: Name of the Marqo index.
+  schemas:
+    SearchRequest:
+      type: object
+      properties:
+        q:
+          oneOf:
+          - type: string
+          - type: object
+            additionalProperties:
+              type: number
+            description: Weighted multi-query map (term -> weight).
+          description: Query text, image URL, or weighted multi-query.
+        searchMethod:
+          type: string
+          enum:
+          - TENSOR
+          - LEXICAL
+          - HYBRID
+          default: TENSOR
+        limit:
+          type: integer
+          minimum: 1
+          default: 10
+        offset:
+          type: integer
+          minimum: 0
+          default: 0
+        filter:
+          type: string
+          description: Filter expression evaluated against structured fields.
+        showHighlights:
+          type: boolean
+          default: true
+        attributesToRetrieve:
+          type: array
+          items:
+            type: string
+        searchableAttributes:
+          type: array
+          items:
+            type: string
+        rerankDepth:
+          type: integer
+          minimum: 0
+        hybridParameters:
+          type: object
+          description: Tuning knobs for HYBRID search (alpha, retrieval method, ranking method).
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: 'Marqo Cloud API key passed as `Authorization: Bearer {api_key}`.
+
+        The open-source engine accepts unauthenticated requests by default.
+
+        '

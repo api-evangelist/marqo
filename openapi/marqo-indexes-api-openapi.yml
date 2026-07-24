@@ -1,0 +1,161 @@
+openapi: 3.1.0
+info:
+  title: Marqo REST Documents Indexes API
+  version: '2.26'
+  summary: Open-source multimodal vector search engine REST API.
+  description: 'Marqo is an open-source vector search engine that bundles index storage
+
+    (Vespa) and embedding inference (Sentence Transformers, OpenCLIP, ONNX)
+
+    behind a single FastAPI HTTP surface. The engine is reachable at
+
+    `http://{host}:8882` by default and publishes its live OpenAPI schema at
+
+    `/openapi.json` with interactive Swagger UI at `/docs`. The same surface
+
+    is exposed by the hosted Marqo Cloud product at `https://api.marqo.ai`
+
+    with bearer-token authentication.
+
+
+    This profile is a hand-curated, best-effort companion spec covering the
+
+    most-used operations across indexes, documents, search, embeddings,
+
+    models, and telemetry. For the canonical, version-pinned specification
+
+    of a deployment, fetch `/openapi.json` directly from the running engine.
+
+    '
+  contact:
+    name: Marqo
+    url: https://www.marqo.ai
+  license:
+    name: Apache 2.0
+    url: https://github.com/marqo-ai/marqo/blob/mainline/LICENSE
+servers:
+- url: http://localhost:8882
+  description: Default Marqo open-source engine endpoint
+- url: https://api.marqo.ai
+  description: Marqo Cloud endpoint (bearer authentication)
+security: []
+tags:
+- name: Indexes
+  description: Create, list, inspect, and delete tensor / lexical indexes.
+paths:
+  /indexes:
+    get:
+      tags:
+      - Indexes
+      summary: List Indexes
+      operationId: listIndexes
+      responses:
+        '200':
+          description: Indexes in this engine.
+  /indexes/{index_name}:
+    post:
+      tags:
+      - Indexes
+      summary: Create Index
+      operationId: createIndex
+      parameters:
+      - $ref: '#/components/parameters/IndexName'
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IndexSettings'
+      responses:
+        '200':
+          description: Index created.
+    delete:
+      tags:
+      - Indexes
+      summary: Delete Index
+      operationId: deleteIndex
+      parameters:
+      - $ref: '#/components/parameters/IndexName'
+      responses:
+        '200':
+          description: Index deleted.
+  /indexes/{index_name}/settings:
+    get:
+      tags:
+      - Indexes
+      summary: Get Index Settings
+      operationId: getIndexSettings
+      parameters:
+      - $ref: '#/components/parameters/IndexName'
+      responses:
+        '200':
+          description: Index settings document.
+  /indexes/{index_name}/stats:
+    get:
+      tags:
+      - Indexes
+      summary: Get Index Stats
+      operationId: getIndexStats
+      parameters:
+      - $ref: '#/components/parameters/IndexName'
+      responses:
+        '200':
+          description: Document count and storage stats.
+components:
+  parameters:
+    IndexName:
+      in: path
+      name: index_name
+      required: true
+      schema:
+        type: string
+      description: Name of the Marqo index.
+  schemas:
+    IndexSettings:
+      type: object
+      description: 'Subset of index configuration. The full settings schema is published
+
+        by the live engine at `/openapi.json` and varies by Marqo version.
+
+        '
+      properties:
+        type:
+          type: string
+          enum:
+          - structured
+          - unstructured
+        model:
+          type: string
+          description: Embedding model loaded into the index (e.g. `hf/e5-base-v2`).
+        normalizeEmbeddings:
+          type: boolean
+        textPreprocessing:
+          type: object
+        imagePreprocessing:
+          type: object
+        vectorNumericType:
+          type: string
+          enum:
+          - float
+          - bfloat16
+        annParameters:
+          type: object
+          properties:
+            spaceType:
+              type: string
+              enum:
+              - angular
+              - dotproduct
+              - euclidean
+              - prenormalized-angular
+            parameters:
+              type: object
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: 'Marqo Cloud API key passed as `Authorization: Bearer {api_key}`.
+
+        The open-source engine accepts unauthenticated requests by default.
+
+        '

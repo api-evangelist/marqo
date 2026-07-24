@@ -1,0 +1,148 @@
+openapi: 3.1.0
+info:
+  title: Marqo REST Documents API
+  version: '2.26'
+  summary: Open-source multimodal vector search engine REST API.
+  description: 'Marqo is an open-source vector search engine that bundles index storage
+
+    (Vespa) and embedding inference (Sentence Transformers, OpenCLIP, ONNX)
+
+    behind a single FastAPI HTTP surface. The engine is reachable at
+
+    `http://{host}:8882` by default and publishes its live OpenAPI schema at
+
+    `/openapi.json` with interactive Swagger UI at `/docs`. The same surface
+
+    is exposed by the hosted Marqo Cloud product at `https://api.marqo.ai`
+
+    with bearer-token authentication.
+
+
+    This profile is a hand-curated, best-effort companion spec covering the
+
+    most-used operations across indexes, documents, search, embeddings,
+
+    models, and telemetry. For the canonical, version-pinned specification
+
+    of a deployment, fetch `/openapi.json` directly from the running engine.
+
+    '
+  contact:
+    name: Marqo
+    url: https://www.marqo.ai
+  license:
+    name: Apache 2.0
+    url: https://github.com/marqo-ai/marqo/blob/mainline/LICENSE
+servers:
+- url: http://localhost:8882
+  description: Default Marqo open-source engine endpoint
+- url: https://api.marqo.ai
+  description: Marqo Cloud endpoint (bearer authentication)
+security: []
+tags:
+- name: Documents
+  description: Add, update, get, and delete documents in an index.
+paths:
+  /indexes/{index_name}/documents:
+    post:
+      tags:
+      - Documents
+      summary: Add Or Update Documents
+      operationId: addDocuments
+      parameters:
+      - $ref: '#/components/parameters/IndexName'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AddDocumentsRequest'
+      responses:
+        '200':
+          description: Documents accepted for indexing.
+    delete:
+      tags:
+      - Documents
+      summary: Delete Documents
+      operationId: deleteDocuments
+      parameters:
+      - $ref: '#/components/parameters/IndexName'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - ids
+              properties:
+                ids:
+                  type: array
+                  items:
+                    type: string
+      responses:
+        '200':
+          description: Deletion accepted.
+  /indexes/{index_name}/documents/{document_id}:
+    get:
+      tags:
+      - Documents
+      summary: Get Document By Id
+      operationId: getDocument
+      parameters:
+      - $ref: '#/components/parameters/IndexName'
+      - in: path
+        name: document_id
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: expose_facets
+        required: false
+        schema:
+          type: boolean
+      responses:
+        '200':
+          description: Document body.
+components:
+  parameters:
+    IndexName:
+      in: path
+      name: index_name
+      required: true
+      schema:
+        type: string
+      description: Name of the Marqo index.
+  schemas:
+    AddDocumentsRequest:
+      type: object
+      required:
+      - documents
+      properties:
+        documents:
+          type: array
+          description: Array of arbitrary JSON documents to index.
+          items:
+            type: object
+            additionalProperties: true
+            properties:
+              _id:
+                type: string
+                description: Optional client-supplied document identifier.
+        tensorFields:
+          type: array
+          description: Field names to embed into tensor vectors.
+          items:
+            type: string
+        mappings:
+          type: object
+          description: Per-field overrides for multimodal combination weights.
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: 'Marqo Cloud API key passed as `Authorization: Bearer {api_key}`.
+
+        The open-source engine accepts unauthenticated requests by default.
+
+        '
