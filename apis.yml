@@ -13,9 +13,22 @@ description: >-
   Python client, Terraform provider, InstantSearch client, ecommerce embedding
   models, and Generalised Contrastive Learning research.
 type: Index
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 position: Consumer
 access: 3rd-Party
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/marqo.png
 tags:
   - Vector Database
   - Vector Search
@@ -31,39 +44,146 @@ created: '2026-05-08'
 modified: '2026-05-25'
 specificationVersion: '0.19'
 apis:
-  - aid: marqo:marqo-rest-api
-    name: Marqo REST API
-    description: >-
-      The Marqo REST API is the HTTP surface exposed by the open-source engine
-      (default `http://localhost:8882`). It provides index lifecycle management,
-      document add/update/get/delete, lexical/tensor/hybrid search, recommendations,
-      embedding generation, model lifecycle, telemetry, and health endpoints. The
-      same surface is served by Marqo Cloud at `https://api.marqo.ai`, and the
-      live OpenAPI schema is published by the running engine at `/openapi.json`
-      with Swagger UI at `/docs`.
-    humanURL: https://docs.marqo.ai/
-    baseURL: http://localhost:8882
-    tags:
-      - REST
-      - Indexes
-      - Documents
-      - Search
-      - Embeddings
-      - Models
-      - Multimodal
-    properties:
-      - type: Documentation
-        url: https://docs.marqo.ai/
-      - type: OpenAPI
-        url: openapi/marqo-openapi.yml
-      - type: APIReference
-        url: https://docs.marqo.ai/latest/
-      - type: GettingStarted
-        url: https://github.com/marqo-ai/marqo#getting-started
-      - type: SourceCode
-        url: https://github.com/marqo-ai/marqo
-      - type: Deprecation
-        url: https://github.com/marqo-ai/marqo
+- aid: marqo:marqo-documents-api
+  name: Marqo Documents API
+  description: Add, update, get, and delete documents in an index.
+  humanURL: https://docs.marqo.ai/
+  baseURL: http://localhost:8882
+  tags:
+  - Documents
+  properties:
+  - type: OpenAPI
+    url: openapi/marqo-documents-api-openapi.yml
+  - type: Documentation
+    url: https://docs.marqo.ai/
+  - type: APIReference
+    url: https://docs.marqo.ai/latest/
+  - type: GettingStarted
+    url: https://github.com/marqo-ai/marqo#getting-started
+  - type: SourceCode
+    url: https://github.com/marqo-ai/marqo
+  - type: Deprecation
+    url: https://github.com/marqo-ai/marqo
+- aid: marqo:marqo-embeddings-api
+  name: Marqo Embeddings API
+  description: Generate embedding vectors using engine-loaded models.
+  humanURL: https://docs.marqo.ai/
+  baseURL: http://localhost:8882
+  tags:
+  - Embeddings
+  properties:
+  - type: OpenAPI
+    url: openapi/marqo-embeddings-api-openapi.yml
+  - type: Documentation
+    url: https://docs.marqo.ai/
+  - type: APIReference
+    url: https://docs.marqo.ai/latest/
+  - type: GettingStarted
+    url: https://github.com/marqo-ai/marqo#getting-started
+  - type: SourceCode
+    url: https://github.com/marqo-ai/marqo
+  - type: Deprecation
+    url: https://github.com/marqo-ai/marqo
+- aid: marqo:marqo-indexes-api
+  name: Marqo Indexes API
+  description: Create, list, inspect, and delete tensor / lexical indexes.
+  humanURL: https://docs.marqo.ai/
+  baseURL: http://localhost:8882
+  tags:
+  - Indexes
+  properties:
+  - type: OpenAPI
+    url: openapi/marqo-indexes-api-openapi.yml
+  - type: Documentation
+    url: https://docs.marqo.ai/
+  - type: APIReference
+    url: https://docs.marqo.ai/latest/
+  - type: GettingStarted
+    url: https://github.com/marqo-ai/marqo#getting-started
+  - type: SourceCode
+    url: https://github.com/marqo-ai/marqo
+  - type: Deprecation
+    url: https://github.com/marqo-ai/marqo
+- aid: marqo:marqo-models-api
+  name: Marqo Models API
+  description: Inspect, load, and eject embedding models from the engine.
+  humanURL: https://docs.marqo.ai/
+  baseURL: http://localhost:8882
+  tags:
+  - Models
+  properties:
+  - type: OpenAPI
+    url: openapi/marqo-models-api-openapi.yml
+  - type: Documentation
+    url: https://docs.marqo.ai/
+  - type: APIReference
+    url: https://docs.marqo.ai/latest/
+  - type: GettingStarted
+    url: https://github.com/marqo-ai/marqo#getting-started
+  - type: SourceCode
+    url: https://github.com/marqo-ai/marqo
+  - type: Deprecation
+    url: https://github.com/marqo-ai/marqo
+- aid: marqo:marqo-recommendations-api
+  name: Marqo Recommendations API
+  description: Return documents similar to one or more reference documents.
+  humanURL: https://docs.marqo.ai/
+  baseURL: http://localhost:8882
+  tags:
+  - Recommendations
+  properties:
+  - type: OpenAPI
+    url: openapi/marqo-recommendations-api-openapi.yml
+  - type: Documentation
+    url: https://docs.marqo.ai/
+  - type: APIReference
+    url: https://docs.marqo.ai/latest/
+  - type: GettingStarted
+    url: https://github.com/marqo-ai/marqo#getting-started
+  - type: SourceCode
+    url: https://github.com/marqo-ai/marqo
+  - type: Deprecation
+    url: https://github.com/marqo-ai/marqo
+- aid: marqo:marqo-search-api
+  name: Marqo Search API
+  description: Tensor, lexical, and hybrid search across an index.
+  humanURL: https://docs.marqo.ai/
+  baseURL: http://localhost:8882
+  tags:
+  - Search
+  properties:
+  - type: OpenAPI
+    url: openapi/marqo-search-api-openapi.yml
+  - type: Documentation
+    url: https://docs.marqo.ai/
+  - type: APIReference
+    url: https://docs.marqo.ai/latest/
+  - type: GettingStarted
+    url: https://github.com/marqo-ai/marqo#getting-started
+  - type: SourceCode
+    url: https://github.com/marqo-ai/marqo
+  - type: Deprecation
+    url: https://github.com/marqo-ai/marqo
+- aid: marqo:marqo-telemetry-api
+  name: Marqo Telemetry API
+  description: Health, readiness, and engine-level metadata.
+  humanURL: https://docs.marqo.ai/
+  baseURL: http://localhost:8882
+  tags:
+  - Telemetry
+  properties:
+  - type: OpenAPI
+    url: openapi/marqo-telemetry-api-openapi.yml
+  - type: Documentation
+    url: https://docs.marqo.ai/
+  - type: APIReference
+    url: https://docs.marqo.ai/latest/
+  - type: GettingStarted
+    url: https://github.com/marqo-ai/marqo#getting-started
+  - type: SourceCode
+    url: https://github.com/marqo-ai/marqo
+  - type: Deprecation
+    url: https://github.com/marqo-ai/marqo
 common:
   - type: AgenticAccess
     url: agentic-access/marqo-agentic-access.yml
