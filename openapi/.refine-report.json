@@ -1,0 +1,26 @@
+{
+  "provider": "marqo",
+  "sources": [
+    "marqo-documents-api-openapi.yml",
+    "marqo-embeddings-api-openapi.yml",
+    "marqo-indexes-api-openapi.yml",
+    "marqo-models-api-openapi.yml",
+    "marqo-recommendations-api-openapi.yml",
+    "marqo-search-api-openapi.yml",
+    "marqo-telemetry-api-openapi.yml"
+  ],
+  "outputs": [
+    "marqo-documents-api-openapi.yml",
+    "marqo-embeddings-api-openapi.yml",
+    "marqo-indexes-api-openapi.yml",
+    "marqo-models-api-openapi.yml",
+    "marqo-recommendations-api-openapi.yml",
+    "marqo-search-api-openapi.yml",
+    "marqo-telemetry-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
