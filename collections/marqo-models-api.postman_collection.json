@@ -1,0 +1,165 @@
+{
+  "item": [
+    {
+      "id": "ba6ebfde-e11b-4624-81bb-9d08a6492225",
+      "name": "Models",
+      "description": {
+        "content": "Inspect, load, and eject embedding models from the engine.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "9fa4e19f-7c3a-4f38-a1a8-ab60158341bd",
+          "name": "List Loaded Models",
+          "request": {
+            "name": "List Loaded Models",
+            "description": {},
+            "url": {
+              "path": [
+                "models"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f38b3118-69b8-4584-8776-717042734320",
+              "name": "Currently loaded embedding models.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "models"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ebed7ec3-5b98-469f-89bb-76634e5b4dac",
+          "name": "Eject Model",
+          "request": {
+            "name": "Eject Model",
+            "description": {},
+            "url": {
+              "path": [
+                "models",
+                "eject"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "model_name",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "model_device",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "bf46de8a-1983-4cbc-9e54-25301ca32145",
+              "name": "Model ejected from memory.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "models",
+                    "eject"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "model_name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "model_device",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost:8882",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "a33f10df-0201-4bf5-b2a9-d0d975084962",
+    "name": "Marqo REST Documents Models API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Marqo is an open-source vector search engine that bundles index storage\n(Vespa) and embedding inference (Sentence Transformers, OpenCLIP, ONNX)\nbehind a single FastAPI HTTP surface. The engine is reachable at\n`http://{host}:8882` by default and publishes its live OpenAPI schema at\n`/openapi.json` with interactive Swagger UI at `/docs`. The same surface\nis exposed by the hosted Marqo Cloud product at `https://api.marqo.ai`\nwith bearer-token authentication.\n\nThis profile is a hand-curated, best-effort companion spec covering the\nmost-used operations across indexes, documents, search, embeddings,\nmodels, and telemetry. For the canonical, version-pinned specification\nof a deployment, fetch `/openapi.json` directly from the running engine.\n\n\nContact Support:\n Name: Marqo",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,109 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Marqo REST Documents Indexes API",
+    "version": "2.26"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Indexes",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Indexes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8882/indexes"
+          },
+          "docs": "List Indexes"
+        },
+        {
+          "info": {
+            "name": "Create Index",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://localhost:8882/indexes/:index_name",
+            "params": [
+              {
+                "name": "index_name",
+                "value": "",
+                "type": "path",
+                "description": "Name of the Marqo index."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create Index"
+        },
+        {
+          "info": {
+            "name": "Delete Index",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "http://localhost:8882/indexes/:index_name",
+            "params": [
+              {
+                "name": "index_name",
+                "value": "",
+                "type": "path",
+                "description": "Name of the Marqo index."
+              }
+            ]
+          },
+          "docs": "Delete Index"
+        },
+        {
+          "info": {
+            "name": "Get Index Settings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8882/indexes/:index_name/settings",
+            "params": [
+              {
+                "name": "index_name",
+                "value": "",
+                "type": "path",
+                "description": "Name of the Marqo index."
+              }
+            ]
+          },
+          "docs": "Get Index Settings"
+        },
+        {
+          "info": {
+            "name": "Get Index Stats",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8882/indexes/:index_name/stats",
+            "params": [
+              {
+                "name": "index_name",
+                "value": "",
+                "type": "path",
+                "description": "Name of the Marqo index."
+              }
+            ]
+          },
+          "docs": "Get Index Stats"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

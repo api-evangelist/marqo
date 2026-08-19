@@ -1,0 +1,51 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Marqo REST Documents Telemetry API",
+    "version": "2.26"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Telemetry",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Root Health Check",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8882/"
+          },
+          "docs": "Root Health Check"
+        },
+        {
+          "info": {
+            "name": "Health Check",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8882/health"
+          },
+          "docs": "Health Check"
+        },
+        {
+          "info": {
+            "name": "Memory Usage",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8882/memory"
+          },
+          "docs": "Memory Usage"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

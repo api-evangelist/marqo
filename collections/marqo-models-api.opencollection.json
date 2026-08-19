@@ -1,0 +1,52 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Marqo REST Documents Models API",
+    "version": "2.26"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Models",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Loaded Models",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8882/models"
+          },
+          "docs": "List Loaded Models"
+        },
+        {
+          "info": {
+            "name": "Eject Model",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "http://localhost:8882/models/eject",
+            "params": [
+              {
+                "name": "model_name",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "model_device",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Eject Model"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

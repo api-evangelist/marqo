@@ -1,0 +1,130 @@
+{
+  "item": [
+    {
+      "id": "77460bbf-92a7-4be3-bd8f-4fb9490b4a45",
+      "name": "Search",
+      "description": {
+        "content": "Tensor, lexical, and hybrid search across an index.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "5c7a0760-baed-4cd5-aaff-006a2ce2483d",
+          "name": "Search Index",
+          "request": {
+            "name": "Search Index",
+            "description": {},
+            "url": {
+              "path": [
+                "indexes",
+                ":index_name",
+                "search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "index_name",
+                  "description": "(Required) Name of the Marqo index."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"q\": \"<string>\",\n  \"searchMethod\": \"TENSOR\",\n  \"limit\": 10,\n  \"offset\": 0,\n  \"filter\": \"<string>\",\n  \"showHighlights\": true,\n  \"attributesToRetrieve\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"searchableAttributes\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"rerankDepth\": \"<integer>\",\n  \"hybridParameters\": \"<object>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "fb70fced-6f70-4d77-855a-b52aabff3c02",
+              "name": "Ranked search results.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "indexes",
+                    ":index_name",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "index_name",
+                      "description": "(Required) Name of the Marqo index."
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"q\": \"<string>\",\n  \"searchMethod\": \"TENSOR\",\n  \"limit\": 10,\n  \"offset\": 0,\n  \"filter\": \"<string>\",\n  \"showHighlights\": true,\n  \"attributesToRetrieve\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"searchableAttributes\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"rerankDepth\": \"<integer>\",\n  \"hybridParameters\": \"<object>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost:8882",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "d96fabbc-0c7f-47e6-ad3e-b9fd76a3bf7e",
+    "name": "Marqo REST Documents Search API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Marqo is an open-source vector search engine that bundles index storage\n(Vespa) and embedding inference (Sentence Transformers, OpenCLIP, ONNX)\nbehind a single FastAPI HTTP surface. The engine is reachable at\n`http://{host}:8882` by default and publishes its live OpenAPI schema at\n`/openapi.json` with interactive Swagger UI at `/docs`. The same surface\nis exposed by the hosted Marqo Cloud product at `https://api.marqo.ai`\nwith bearer-token authentication.\n\nThis profile is a hand-curated, best-effort companion spec covering the\nmost-used operations across indexes, documents, search, embeddings,\nmodels, and telemetry. For the canonical, version-pinned specification\nof a deployment, fetch `/openapi.json` directly from the running engine.\n\n\nContact Support:\n Name: Marqo",
+      "type": "text/plain"
+    }
+  }
+}

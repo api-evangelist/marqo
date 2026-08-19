@@ -1,0 +1,197 @@
+{
+  "item": [
+    {
+      "id": "56de72fc-d6b1-4a6d-ac31-fa9f7cd54377",
+      "name": "Telemetry",
+      "description": {
+        "content": "Health, readiness, and engine-level metadata.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "95472cad-f949-462a-be92-a0a1d15d2374",
+          "name": "Root Health Check",
+          "request": {
+            "name": "Root Health Check",
+            "description": {},
+            "url": {
+              "path": [
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "04daca73-80cd-41aa-9378-3282de569c03",
+              "name": "Engine is up.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "eba2826a-cb84-49ad-9d08-6e1ac79e1f62",
+          "name": "Health Check",
+          "request": {
+            "name": "Health Check",
+            "description": {},
+            "url": {
+              "path": [
+                "health"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e23d7032-f887-4d8b-a41c-3d2b5070b110",
+              "name": "Engine and backing Vespa are healthy.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "health"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "01f56cb0-b46a-4a1c-961f-b814c6bd7237",
+          "name": "Memory Usage",
+          "request": {
+            "name": "Memory Usage",
+            "description": {},
+            "url": {
+              "path": [
+                "memory"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ceffd230-af46-494e-a1ab-53b33e642adf",
+              "name": "Process memory snapshot.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "memory"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost:8882",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "1c9aaaf5-4220-41bb-9863-184ae3dd1f15",
+    "name": "Marqo REST Documents Telemetry API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Marqo is an open-source vector search engine that bundles index storage\n(Vespa) and embedding inference (Sentence Transformers, OpenCLIP, ONNX)\nbehind a single FastAPI HTTP surface. The engine is reachable at\n`http://{host}:8882` by default and publishes its live OpenAPI schema at\n`/openapi.json` with interactive Swagger UI at `/docs`. The same surface\nis exposed by the hosted Marqo Cloud product at `https://api.marqo.ai`\nwith bearer-token authentication.\n\nThis profile is a hand-curated, best-effort companion spec covering the\nmost-used operations across indexes, documents, search, embeddings,\nmodels, and telemetry. For the canonical, version-pinned specification\nof a deployment, fetch `/openapi.json` directly from the running engine.\n\n\nContact Support:\n Name: Marqo",
+      "type": "text/plain"
+    }
+  }
+}

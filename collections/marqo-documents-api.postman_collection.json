@@ -1,0 +1,330 @@
+{
+  "item": [
+    {
+      "id": "98c25e78-e144-4fbd-8c09-f6247ca3b8aa",
+      "name": "Documents",
+      "description": {
+        "content": "Add, update, get, and delete documents in an index.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "60ed8228-123d-448c-8586-ea3659d6050a",
+          "name": "Add Or Update Documents",
+          "request": {
+            "name": "Add Or Update Documents",
+            "description": {},
+            "url": {
+              "path": [
+                "indexes",
+                ":index_name",
+                "documents"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "index_name",
+                  "description": "(Required) Name of the Marqo index."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"documents\": [\n    {\n      \"_id\": \"<string>\",\n      \"key_0\": true,\n      \"key_1\": \"string\",\n      \"key_2\": \"string\"\n    },\n    {\n      \"_id\": \"<string>\",\n      \"key_0\": 3965,\n      \"key_1\": 3955,\n      \"key_2\": 9402.312495733266\n    }\n  ],\n  \"tensorFields\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"mappings\": \"<object>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b8f9776a-490e-4dde-aff1-87e4167c22dc",
+              "name": "Documents accepted for indexing.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "indexes",
+                    ":index_name",
+                    "documents"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "index_name",
+                      "description": "(Required) Name of the Marqo index."
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"documents\": [\n    {\n      \"_id\": \"<string>\"\n    },\n    {\n      \"_id\": \"<string>\"\n    }\n  ],\n  \"tensorFields\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"mappings\": \"<object>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "10f31dcb-1968-410c-9787-186784420acb",
+          "name": "Delete Documents",
+          "request": {
+            "name": "Delete Documents",
+            "description": {},
+            "url": {
+              "path": [
+                "indexes",
+                ":index_name",
+                "documents"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "index_name",
+                  "description": "(Required) Name of the Marqo index."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"ids\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "1f38fb80-2a9f-4bc6-a4fe-284f42bad578",
+              "name": "Deletion accepted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "indexes",
+                    ":index_name",
+                    "documents"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "index_name",
+                      "description": "(Required) Name of the Marqo index."
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ids\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5bcddf5f-d841-4995-a38b-3ff8035248e5",
+          "name": "Get Document By Id",
+          "request": {
+            "name": "Get Document By Id",
+            "description": {},
+            "url": {
+              "path": [
+                "indexes",
+                ":index_name",
+                "documents",
+                ":document_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "expose_facets",
+                  "value": "<boolean>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "index_name",
+                  "description": "(Required) Name of the Marqo index."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "document_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6611e75c-16d0-4da9-a81a-1ef2be3e311d",
+              "name": "Document body.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "indexes",
+                    ":index_name",
+                    "documents",
+                    ":document_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "expose_facets",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "index_name",
+                      "description": "(Required) Name of the Marqo index."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "document_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost:8882",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "2bf65928-6c7f-4cb2-b737-bba2c289bb38",
+    "name": "Marqo REST Documents API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Marqo is an open-source vector search engine that bundles index storage\n(Vespa) and embedding inference (Sentence Transformers, OpenCLIP, ONNX)\nbehind a single FastAPI HTTP surface. The engine is reachable at\n`http://{host}:8882` by default and publishes its live OpenAPI schema at\n`/openapi.json` with interactive Swagger UI at `/docs`. The same surface\nis exposed by the hosted Marqo Cloud product at `https://api.marqo.ai`\nwith bearer-token authentication.\n\nThis profile is a hand-curated, best-effort companion spec covering the\nmost-used operations across indexes, documents, search, embeddings,\nmodels, and telemetry. For the canonical, version-pinned specification\nof a deployment, fetch `/openapi.json` directly from the running engine.\n\n\nContact Support:\n Name: Marqo",
+      "type": "text/plain"
+    }
+  }
+}
