@@ -115,6 +115,8 @@ apis:
   humanURL: https://docs.marqo.ai/
   baseURL: http://localhost:8882
   tags:
+  - Index
+  tags_raw:
   - Indexes
   properties:
   - type: OpenAPI
