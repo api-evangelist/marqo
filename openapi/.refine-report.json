@@ -1,13 +1,7 @@
 {
   "provider": "marqo",
   "sources": [
-    "marqo-documents-api-openapi.yml",
-    "marqo-embeddings-api-openapi.yml",
-    "marqo-indexes-api-openapi.yml",
-    "marqo-models-api-openapi.yml",
-    "marqo-recommendations-api-openapi.yml",
-    "marqo-search-api-openapi.yml",
-    "marqo-telemetry-api-openapi.yml"
+    "_original/marqo-openapi.yml"
   ],
   "outputs": [
     "marqo-documents-api-openapi.yml",
@@ -21,6 +15,18 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "marqo-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "marqo-documents-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "marqo-embeddings-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "marqo-indexes-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "marqo-models-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "marqo-recommendations-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "marqo-search-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "marqo-telemetry-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

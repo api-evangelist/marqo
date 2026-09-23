@@ -1,4 +1,4 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   title: Marqo REST Documents API
   version: '2.26'
@@ -7,26 +7,7 @@ info:
 
     (Vespa) and embedding inference (Sentence Transformers, OpenCLIP, ONNX)
 
-    behind a single FastAPI HTTP surface. The engine is reachable at
-
-    `http://{host}:8882` by default and publishes its live OpenAPI schema at
-
-    `/openapi.json` with interactive Swagger UI at `/docs`. The same surface
-
-    is exposed by the hosted Marqo Cloud product at `https://api.marqo.ai`
-
-    with bearer-token authentication.
-
-
-    This profile is a hand-curated, best-effort companion spec covering the
-
-    most-used operations across indexes, documents, search, embeddings,
-
-    models, and telemetry. For the canonical, version-pinned specification
-
-    of a deployment, fetch `/openapi.json` directly from the running engine.
-
-    '
+    behind a single FastAPI HTTP surface.'
   contact:
     name: Marqo
     url: https://www.marqo.ai
@@ -105,14 +86,6 @@ paths:
         '200':
           description: Document body.
 components:
-  parameters:
-    IndexName:
-      in: path
-      name: index_name
-      required: true
-      schema:
-        type: string
-      description: Name of the Marqo index.
   schemas:
     AddDocumentsRequest:
       type: object
@@ -137,6 +110,14 @@ components:
         mappings:
           type: object
           description: Per-field overrides for multimodal combination weights.
+  parameters:
+    IndexName:
+      in: path
+      name: index_name
+      required: true
+      schema:
+        type: string
+      description: Name of the Marqo index.
   securitySchemes:
     BearerAuth:
       type: http
