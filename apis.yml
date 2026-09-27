@@ -14,17 +14,22 @@ description: >-
   models, and Generalised Contrastive Learning research.
 type: Index
 deliveryModel:
-  model: unknown
-  open_source: unknown
+  model: open-core
+  license: Apache-2.0
+  license_evidence:
+    repo: marqo-ai/marqo
+    spdx: Apache-2.0
+    stars: 5031
+  open_source: true
   commercial: true
   callable_host: true
-  label: Delivery model not determined — needs a product licence on record
-  confidence: low
+  label: Open core · an OSS project plus a commercial hosted product
+  confidence: medium
   source:
   - openapi
   - pricing
-  - repository-unlicensed
-  generated: '2026-08-28'
+  - repository-license
+  generated: '2026-09-25'
   method: derived
 accessModel:
   pricing: unknown
@@ -51,8 +56,8 @@ tags:
   - Semantic Search
   - Embeddings
   - Artificial Intelligence
-  - Machine-Learning
-  - Open-Source
+  - Machine Learning
+  - Open Source
   - Ecommerce Search
 tags_raw:
   - Vector Database
@@ -64,6 +69,8 @@ tags_raw:
   - Machine Learning
   - Open Source
   - Ecommerce Search
+  - Machine-Learning
+  - Open-Source
 url: https://raw.githubusercontent.com/api-evangelist/marqo/refs/heads/main/apis.yml
 created: '2026-05-08'
 modified: '2026-05-25'

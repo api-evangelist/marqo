@@ -86,6 +86,14 @@ paths:
         '200':
           description: Document body.
 components:
+  parameters:
+    IndexName:
+      in: path
+      name: index_name
+      required: true
+      schema:
+        type: string
+      description: Name of the Marqo index.
   schemas:
     AddDocumentsRequest:
       type: object
@@ -110,14 +118,6 @@ components:
         mappings:
           type: object
           description: Per-field overrides for multimodal combination weights.
-  parameters:
-    IndexName:
-      in: path
-      name: index_name
-      required: true
-      schema:
-        type: string
-      description: Name of the Marqo index.
   securitySchemes:
     BearerAuth:
       type: http

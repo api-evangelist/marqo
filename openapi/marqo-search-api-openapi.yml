@@ -42,14 +42,6 @@ paths:
         '200':
           description: Ranked search results.
 components:
-  parameters:
-    IndexName:
-      in: path
-      name: index_name
-      required: true
-      schema:
-        type: string
-      description: Name of the Marqo index.
   schemas:
     SearchRequest:
       type: object
@@ -97,6 +89,14 @@ components:
         hybridParameters:
           type: object
           description: Tuning knobs for HYBRID search (alpha, retrieval method, ranking method).
+  parameters:
+    IndexName:
+      in: path
+      name: index_name
+      required: true
+      schema:
+        type: string
+      description: Name of the Marqo index.
   securitySchemes:
     BearerAuth:
       type: http
