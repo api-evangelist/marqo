@@ -1,62 +1,66 @@
-generated: '2026-07-15'
+generated: '2026-09-23'
 method: generated
-source: openapi/marqo-openapi.yml
+source: openapi/marqo-documents-api-openapi.yml, openapi/marqo-embeddings-api-openapi.yml, openapi/marqo-indexes-api-openapi.yml,
+  openapi/marqo-models-api-openapi.yml, openapi/marqo-recommendations-api-openapi.yml, openapi/marqo-search-api-openapi.yml,
+  openapi/marqo-telemetry-api-openapi.yml
 description: Recommended x-agentic-access execution contracts, classified heuristically from
   the OpenAPI. A governance starting point for exposing this API to AI agents — review and bind
   audience per deployment. See research/curity/agentic-governance/.
 summary:
   operations: 16
   by_action_class:
-    connected: 8
-    acting: 8
+    acting: 7
+    connected: 9
   by_consequence:
-    read: 8
-    write: 8
+    write: 7
+    read: 9
   human_in_the_loop_required: 0
 operations:
-- path: /
-  method: get
-  operationId: root
+- path: /indexes/{index_name}/documents
+  method: post
+  operationId: addDocuments
   x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
     token:
-      max-ttl: 3600
-    audit: none
-- path: /health
-  method: get
-  operationId: health
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /memory
-  method: get
-  operationId: memory
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /models
-  method: get
-  operationId: listModels
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /models/eject
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /indexes/{index_name}/documents
   method: delete
-  operationId: ejectModel
+  operationId: deleteDocuments
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /indexes/{index_name}/documents/{document_id}
+  method: get
+  operationId: getDocument
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /indexes/{index_name}/embed
+  method: post
+  operationId: embed
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -132,41 +136,9 @@ operations:
     token:
       max-ttl: 3600
     audit: none
-- path: /indexes/{index_name}/documents
-  method: post
-  operationId: addDocuments
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /indexes/{index_name}/documents
-  method: delete
-  operationId: deleteDocuments
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /indexes/{index_name}/documents/{document_id}
+- path: /models
   method: get
-  operationId: getDocument
+  operationId: listModels
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -174,9 +146,9 @@ operations:
     token:
       max-ttl: 3600
     audit: none
-- path: /indexes/{index_name}/search
-  method: post
-  operationId: search
+- path: /models/eject
+  method: delete
+  operationId: ejectModel
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -206,19 +178,43 @@ operations:
       - abnormal
       - high-value
     audit: required
-- path: /indexes/{index_name}/embed
+- path: /indexes/{index_name}/search
   method: post
-  operationId: embed
+  operationId: search
   x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
+    action-class: connected
+    consequence: read
+    subject: optional
     token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
+      max-ttl: 3600
+    audit: none
+- path: /
+  method: get
+  operationId: root
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /health
+  method: get
+  operationId: health
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /memory
+  method: get
+  operationId: memory
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
