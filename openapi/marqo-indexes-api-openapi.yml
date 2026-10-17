@@ -83,6 +83,14 @@ paths:
         '200':
           description: Document count and storage stats.
 components:
+  parameters:
+    IndexName:
+      in: path
+      name: index_name
+      required: true
+      schema:
+        type: string
+      description: Name of the Marqo index.
   schemas:
     IndexSettings:
       type: object
@@ -123,14 +131,6 @@ components:
               - prenormalized-angular
             parameters:
               type: object
-  parameters:
-    IndexName:
-      in: path
-      name: index_name
-      required: true
-      schema:
-        type: string
-      description: Name of the Marqo index.
   securitySchemes:
     BearerAuth:
       type: http
