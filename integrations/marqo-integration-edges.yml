@@ -66,6 +66,48 @@ edges:
   detected: '2026-10-21'
   detected_by: mirror-platform-listings.py
   category: infrastructure-as-code provider registry listing
+- partner_name: Hugging Face (hugging-face-hub)
+  partner: hugging-face
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: hugging-face-hub
+  evidence: https://huggingface.co/Marqo
+  mirror_of: hugging-face/integrations/hugging-face-integration-edges.yml
+  apps:
+  - Marqo/marqo-GS-10M
+  - Marqo/deepfashion-inshop
+  - Marqo/iMaterialist
+  - Marqo/fashion200k
+  - Marqo/benchmark-embeddings
+  - Marqo/KAGL
+  - Marqo/polyvore
+  - Marqo/marqo-general-ecommerce-eval
+  - Marqo/nsfw-image-detection-384
+  - Marqo/marqo-fashionSigLIP
+  - Marqo/marqo-ecommerce-embeddings-L
+  - Marqo/marqo-ecommerce-embeddings-B
+  - Marqo/marqo-fashionCLIP
+  - Marqo/multilingual-e5-small
+  - Marqo/marqo-chimera-arctic-bge-m
+  - Marqo/dunzhang-stella_en_400M_v5
+  - Marqo/Ecommerce-Embedding-Benchmarks
+  - Marqo/Marqo-FashionSigLIP-Classification
+  - Marqo/Marqo-Ecommerce-Classification
+  - Marqo/e-commerce-taxonomy-mapping
+  - Marqo/CLIP-benchmarks
+  - Marqo/MarqoFashionCLIP-WebGPU
+  - Marqo/MarqoFashionSigLIP-WebGPU
+  - Marqo/multilingual-CLIP-Benchmarks
+  listing_count: 3
+  detected: '2026-10-23'
+  detected_by: mirror-platform-listings.py
+  category: Hugging Face Hub datasets
+  badges:
+  - Verified publisher (Hugging Face verified organisation)
 generated: '2026-10-15'
 method: searched
 source:
@@ -77,3 +119,4 @@ checked:
 - https://github.com/cncf/landscape
 - opentofu/integrations/opentofu-integration-edges.yml
 - terraform/integrations/terraform-integration-edges.yml
+- hugging-face/integrations/hugging-face-integration-edges.yml
