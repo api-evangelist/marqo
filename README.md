@@ -1,4 +1,4 @@
-# Marqo (marqo)
+# Marqo
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,90 +66,132 @@
 
 Marqo is an open-source, multimodal vector search engine that lets developers index text and images, generate embeddings on the fly, and run tensor, lexical, and hybrid search through a single REST API. Built on Vespa for storage and retrieval and FastAPI for the HTTP surface, Marqo bundles model inference (Sentence Transformers, OpenCLIP, ONNX) inside the engine so a single `docker run` produces a working semantic search stack. The Apache 2.0 open-source engine has been marked deprecated by the maintainers as Marqo pivots to a hosted ecommerce search product, but the project remains widely forked, downloaded, and self-hosted, with active sibling repositories for the Python client, Terraform provider, InstantSearch client, ecommerce embedding models, and Generalised Contrastive Learning research.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/marqo/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/marqo/refs/heads/main/apis.yml)
+**Areas:** Vector Search · Multi-Modal · Semantic Search · Embeddings · Artificial Intelligence · Machine Learning · Open Source · Ecommerce Search
 
-## Scope
+## Marqo on APIs.io
 
-- **Type:** Index
-- **Position:** Consumer
-- **Access:** 3rd-Party
+Everything profiled for Marqo is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/marqo/](https://apis.io/providers/marqo/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (7)
 
-- Vector Database
-- Vector Search
-- Multimodal
-- Semantic Search
-- Embeddings
-- AI
-- Machine Learning
-- Open Source
-- Ecommerce Search
+- [Marqo Documents API](https://apis.io/apis/marqo/marqo-documents-api/) — Add, update, get, and delete documents in an index.
+- [Marqo Embeddings API](https://apis.io/apis/marqo/marqo-embeddings-api/) — Generate embedding vectors using engine-loaded models.
+- [Marqo Indexes API](https://apis.io/apis/marqo/marqo-indexes-api/) — Create, list, inspect, and delete tensor / lexical indexes.
+- [Marqo Models API](https://apis.io/apis/marqo/marqo-models-api/) — Inspect, load, and eject embedding models from the engine.
+- [Marqo Recommendations API](https://apis.io/apis/marqo/marqo-recommendations-api/) — Return documents similar to one or more reference documents.
+- [Marqo Search API](https://apis.io/apis/marqo/marqo-search-api/) — Tensor, lexical, and hybrid search across an index.
+- [Marqo Telemetry API](https://apis.io/apis/marqo/marqo-telemetry-api/) — Health, readiness, and engine-level metadata.
 
-## Timestamps
+### Published properties
 
-- **Created:** 2026-05-08
-- **Modified:** 2026-05-25
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### Agentic access (1)
 
-### Marqo REST API
+Which operations an agent can call, which act, and which need a human in the loop.
 
-The Marqo REST API is the HTTP surface exposed by the open-source engine (default `http://localhost:8882`). It provides index lifecycle management, document add/update/get/delete, lexical/tensor/hybrid search, recommendations, embedding generation, model lifecycle, telemetry, and health endpoints. The same surface is served by Marqo Cloud at `https://api.marqo.ai`, and the live OpenAPI schema is published by the running engine at `/openapi.json` with Swagger UI at `/docs`.
+- [Marqo Agentic Access](https://apis.io/agentic-access/marqo/marqo-agentic-access/)
 
-- **Human URL:** [https://docs.marqo.ai/](https://docs.marqo.ai/)
-- **Base URL:** `http://localhost:8882`
+#### Collections (8)
 
-#### Tags
+Postman and Open Collection request collections.
 
-- REST
-- Indexes
-- Documents
-- Search
-- Embeddings
-- Models
-- Multimodal
+- [Marqo REST API](https://apis.io/collections/marqo/open-marqo/)
+- [Marqo REST Documents API](https://apis.io/collections/marqo/open-marqo-documents-api/)
+- [Marqo REST Documents Embeddings API](https://apis.io/collections/marqo/open-marqo-embeddings-api/)
+- [Marqo REST Documents Indexes API](https://apis.io/collections/marqo/open-marqo-indexes-api/)
+- [Marqo REST Documents Models API](https://apis.io/collections/marqo/open-marqo-models-api/)
+- [Marqo REST Documents Recommendations API](https://apis.io/collections/marqo/open-marqo-recommendations-api/)
+- [Marqo REST Documents Search API](https://apis.io/collections/marqo/open-marqo-search-api/)
+- [Marqo REST Documents Telemetry API](https://apis.io/collections/marqo/open-marqo-telemetry-api/)
 
-#### Properties
+#### Security (2)
 
-- [Documentation](https://docs.marqo.ai/)
-- [OpenAPI](openapi/marqo-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/marqo.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/marqo.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [API Reference](https://docs.marqo.ai/latest/)
-- [Getting Started](https://github.com/marqo-ai/marqo#getting-started)
-- [Source Code](https://github.com/marqo-ai/marqo)
-- [Deprecation](https://github.com/marqo-ai/marqo)
+Authentication, trust centre, and vulnerability disclosure.
 
-## Common Properties
+- [Marqo Authentication](https://apis.io/security/marqo/marqo-authentication/)
+- [Marqo Domain Security](https://apis.io/security/marqo/marqo-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Marqo Plans Pricing](https://apis.io/plans/marqo/marqo-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Marqo Rate Limits](https://apis.io/rate-limits/marqo/marqo-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Marqo Finops](https://apis.io/finops/marqo/marqo-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
 - [Website](https://www.marqo.ai/)
-- [GitHub Organization](https://github.com/marqo-ai)
-- [GitHub Repository](https://github.com/marqo-ai/marqo)
-- [LinkedIn](https://www.linkedin.com/company/marqo-ai)
 - [Documentation](https://docs.marqo.ai/)
-- [Getting Started](https://github.com/marqo-ai/marqo#getting-started)
-- [License](https://github.com/marqo-ai/marqo/blob/mainline/LICENSE)
-- [Blog](https://www.marqo.ai/blog/)
+- [Getting started](https://github.com/marqo-ai/marqo#getting-started)
 - [Pricing](https://www.marqo.ai/pricing)
-- [Plans](plans/marqo-plans-pricing.yml)
-- [Rate Limits](rate-limits/marqo-rate-limits.yml)
-- [Fin Ops](finops/marqo-finops.yml)
-- [SDK](https://github.com/marqo-ai/py-marqo)
-- [SDK](https://github.com/marqo-ai/marqo-instantsearch-client)
-- [Tools](https://github.com/marqo-ai/terraform-provider-marqo)
-- [Tools](https://github.com/marqo-ai/marqo-base)
-- [Tools](https://github.com/marqo-ai/ingrain_server)
-- [Models](https://github.com/marqo-ai/marqo-ecommerce-embeddings)
-- [Models](https://github.com/marqo-ai/marqo-FashionCLIP)
-- [Research](https://github.com/marqo-ai/GCL)
-- [Examples](https://github.com/marqo-ai/local-image-search-demo)
-- [Course](https://github.com/marqo-ai/fine-tuning-embedding-models-course)
-- [Features](undefined)
-- [Use Cases](undefined)
-- [Integrations](undefined)
+- [Blog](https://www.marqo.ai/blog/)
+- [GitHub](https://github.com/marqo-ai)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 41.2** — developing · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 57.1 |
+| Contract quality | 45.0 |
+| Contract governance | 0.0 |
+| Operational transparency | 42.1 |
+| Developer ergonomics | 42.9 |
+| Access clarity | 15.8 |
+
+**Agent readiness 20.9** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | documented (partial credit) |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 10.9** — AI & Biometrics
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/marqo/](https://apis.io/providers/marqo/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Marqo: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/marqo/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
